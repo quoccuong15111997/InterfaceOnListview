@@ -3,10 +3,12 @@ package com.example.model;
 public class Food {
     private String name;
     private int price;
+    private int image;
 
-    public Food(String name, int price) {
+    public Food(String name, int price, int image) {
         this.name = name;
         this.price = price;
+        this.image=image;
     }
 
     public Food() {
@@ -26,5 +28,13 @@ public class Food {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

@@ -44,6 +44,7 @@ public class FoodAdapter extends ArrayAdapter<Food> {
             viewHolder.txtPrice=convertView.findViewById(R.id.txtPrice);
             viewHolder.imgCheck=convertView.findViewById(R.id.imgCheck);
             viewHolder.imgDelete=convertView.findViewById(R.id.imgDelete);
+            viewHolder.imgHinh=convertView.findViewById(R.id.imhHinh);
             viewHolder.position=position;
 
             convertView.setTag(viewHolder);
@@ -54,17 +55,20 @@ public class FoodAdapter extends ArrayAdapter<Food> {
         Food food=objects.get(position);
         viewHolder.txtName.setText(food.getName());
         viewHolder.txtPrice.setText(food.getPrice()+"");
+        viewHolder.imgHinh.setImageResource(food.getImage());
 
         viewHolder.imgCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buttonInterface.checkedOnClick(position);
+                viewHolder.imgCheck.setImageResource(R.drawable.check_50px);
             }
         });
         viewHolder.imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 buttonInterface.deleteOnclick(position);
+                viewHolder.imgCheck.setImageResource(R.drawable.ok_50px);
             }
         });
 
@@ -75,6 +79,7 @@ public class FoodAdapter extends ArrayAdapter<Food> {
         TextView txtPrice;
         ImageView imgCheck;
         ImageView imgDelete;
+        ImageView imgHinh;
         int position;
     }
 }
